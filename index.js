@@ -8,7 +8,9 @@ app.use(cors({
     origin: '*'
 }));
 app.use(express.json());
-
+app.get('/', async(req, res) => {
+    res.status(200).json({ message: "Welcome to enterthevelvet backend" });
+});
 app.post('/send-initiation', async (req, res) => {
     const { plan_name, plan_price, payment_method, user_email } = req.body;
 
