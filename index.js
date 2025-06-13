@@ -25,39 +25,52 @@ app.post('/send-initiation', async (req, res) => {
     });
 
     const mailOptions = {
-        from: `"Velvet Order" <support@enterthevelvetorder.com>`,
-        to: user_email,
-        subject: `🕯️ New Initiation: ${plan_name} Membership`,
-        html: `
-            <div style="background: #0e0b16; color: #e0d4b7; font-family: 'Georgia', serif; padding: 2rem; border: 1px solid #8a0303; border-radius: 10px; max-width: 600px; margin: auto;">
-            <h1 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 28px; text-align: center;">Welcome, Initiate of the Velvet Order</h1>
-
-            <p style="font-size: 16px; line-height: 1.6; margin-top: 2rem;">
-                Greetings <strong style="color: #f8c471;">${user_email}</strong>,
+    from: `"Velvet Order" <support@enterthevelvetorder.com>`,
+    to: user_email,
+    subject: `Initiation Underway — ${plan_name} Path Confirmed`,
+    html: `
+        <div style="background: #0e0b16; color: #e0d4b7; font-family: 'Georgia', serif; padding: 2rem; border: 1px solid #8a0303; border-radius: 10px; max-width: 600px; margin: auto;">
+            <h2 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 24px; text-align: center;">The Velvet Order</h2>
+            <p style="margin-top: 2rem; font-size: 16px; line-height: 1.6;">
+                Dear ${user_email},
             </p>
 
             <p style="font-size: 16px; line-height: 1.6;">
-                The sacred Ritual of Entry has been completed on your behalf.
-                You have chosen the <strong style="color: #d4af37;">${plan_name}</strong> membership at <strong>${plan_price}</strong>, opting to use <strong>${payment_method}</strong> as your payment vessel.
+                Your intention has been received with deep reverence.
             </p>
 
             <p style="font-size: 16px; line-height: 1.6;">
-                The Order acknowledges your devotion and seeks to guide you further into the Veil. Your presence has been felt in the chambers.
+                By choosing the ${plan_name} Membership, you have aligned yourself with the inner current of The Velvet Order—where sacred pleasure and esoteric wisdom intertwine beyond the veil of the ordinary.
             </p>
 
-            <blockquote style="margin-top: 2rem; font-style: italic; color: #ccc; border-left: 3px solid #8a0303; padding-left: 1rem;">
-                “Those who dare step into the shadows shall awaken in the light.”
-            </blockquote>
+            <p style="font-size: 16px; line-height: 1.6;">Your path now opens to:</p>
+            <ul style="font-size: 16px; line-height: 1.6; padding-left: 1.5rem;">
+                <li><strong>Sacred Rituals:</strong> Invitations to our private ceremonies of spiritual and sensual awakening.</li>
+                <li><strong>Elite Inner Circle:</strong> Communion with devoted initiates in discreet, sacred spaces.</li>
+                <li><strong>Esoteric Teachings:</strong> Access to transformative mystical knowledge.</li>
+                <li><strong>Priority Event Access:</strong> Advance entry to our most intimate gatherings.</li>
+                <li><strong>${plan_name} Mentorship:</strong> Direct guidance from our High Mystics on your unfolding journey.</li>
+                <li><strong>Secret Archives:</strong> Entry into rare texts and teachings of mystic-erotic tradition.</li>
+            </ul>
 
-            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #8a0303;" />
-
-            <p style="margin-top: 2rem; font-size: 14px; color: #999;">
-                🔮 This message was divined by the High Seers of the Order.<br/>
-                If you received this in error, the spirits may have erred — or you may be chosen still.
+            <p style="font-size: 16px; line-height: 1.6;">
+                Your initiation begins soon.
             </p>
-            </div>
-        `,
-    };
+
+            <p style="font-size: 16px; line-height: 1.6;">
+                A follow-up message will be sent shortly containing your access credentials and secure payment instructions. Prepare your spirit—and your senses.
+            </p>
+
+            <p style="margin-top: 2rem; font-size: 16px; line-height: 1.6;">
+                With grace, fire, and the silence between moans,
+                <br/><br/>
+                <strong>The Velvet Order</strong><br/>
+                <em>“Through Ecstasy, Enlightenment.”</em>
+            </p>
+        </div>
+    `,
+};
+
 
     try {
         await transporter.sendMail(mailOptions);
